@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.HomeController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Button layoutX="315.0" layoutY="120.0" mnemonicParsing="false" onAction="#gotoHistoryHomework" onMouseClicked="#gotoHistoryHomework" prefWidth="171.0" text="作業管理" />
+    <Button layoutX="315.0" layoutY="170.0" mnemonicParsing="false" prefWidth="171.0" text="行事曆" />
+    <Button layoutX="315.0" layoutY="220.0" mnemonicParsing="false" onAction="#gotoLectureMan" onMouseClicked="#gotoLectureMan" prefWidth="171.0" text="講義管理" />
+    <Button layoutX="315.0" layoutY="270.0" mnemonicParsing="false" onAction="#gotoUpdate" onMouseClicked="#gotoUpdate" prefWidth="171.0" text="檢查更新" />
+    <Pane layoutX="565.0" layoutY="240.0" prefHeight="42.0" prefWidth="197.0" style="" styleClass="pane">
+      <children>
+        <Label layoutX="13.0" layoutY="0.0" text="程式語言" />
+        <Label layoutX="66.0" layoutY="18.0" text="一天後" />
+        <Label layoutX="150.0" layoutY="21.0" text="交作業" />
+      </children>
+    </Pane>
+    <Pane layoutX="565.0" layoutY="295.0" prefHeight="42.0" prefWidth="197.0" style="" styleClass="pane">
+      <children>
+        <Label layoutX="13.0" layoutY="0.0" text="作業系統" />
+        <Label layoutX="66.0" layoutY="20.0" text="一天後" />
+        <Label layoutX="150.0" layoutY="20.0" text="交作業" />
+      </children>
+    </Pane>
+    <Pane layoutX="565.0" layoutY="351.0" prefHeight="42.0" prefWidth="197.0" style="" styleClass="pane">
+      <children>
+        <Label layoutX="13.0" layoutY="-3.0" text="軟體工程" />
+        <Label layoutX="66.0" layoutY="19.0" text="一天後" />
+        <Label layoutX="150.0" layoutY="19.0" text="交作業" />
+      </children>
+    </Pane>
+  </children>
+  <stylesheets>
+    <URL value="@HomeTheme.css" />
+  </stylesheets>
+</AnchorPane>

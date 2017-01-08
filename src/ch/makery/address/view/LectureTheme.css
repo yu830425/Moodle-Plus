@@ -1,0 +1,12 @@
+.Pane
+{
+	-fx-background-color: #ffffff;
+	-fx-text-fill: #808080;
+}
+.button { 
+    -fx-background-radius: 20px;
+    -fx-background-color: #008ae6;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 10pt;
+    -fx-text-fill: #ffffff;
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="400.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.HomeController">
+  <!-- TODO Add Nodes -->
+  <stylesheets>
+    <URL value="@Layout.css" />
+  </stylesheets>
+  <top>
+    <ToolBar minHeight="28.0" orientation="HORIZONTAL" prefHeight="37.0">
+      <items>
+        <Pane prefHeight="33.0" prefWidth="780.0" style="">
+          <children>
+            <Label layoutX="719.0" layoutY="3.0" minHeight="10.962997436523438" prefHeight="19.630767822265625" text="登出" />
+            <Label contentDisplay="CENTER" layoutX="662.0" layoutY="1.0" minHeight="10.962890625" prefHeight="23.9999915527369" prefWidth="44.0" text="游旻叡" textAlignment="LEFT" textOverrun="CLIP" />
+            <Button layoutX="81.0" layoutY="-2.0" mnemonicParsing="false" onAction="#gotoLectureMan" onMouseClicked="#gotoLectureMan" style="" text="講義管理" />
+            <Button layoutX="173.0" layoutY="-2.0" mnemonicParsing="false" onAction="#gotoHistoryHomework" onMouseClicked="#gotoHistoryHomework" text="作業管理" />
+            <Button layoutX="262.0" layoutY="-2.0" mnemonicParsing="false" text="行事曆" />
+                  <Button layoutX="16.0" layoutY="-2.0" mnemonicParsing="false" onAction="#gotoIndex" text="首頁" />
+          </children>
+        </Pane>
+      </items>
+    </ToolBar>
+  </top>
+</BorderPane>

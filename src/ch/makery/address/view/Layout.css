@@ -1,0 +1,34 @@
+
+.background {
+    -fx-background-color: #808080;
+}
+.button { 
+    -fx-background-radius: 20px;
+    -fx-background-color: #ffffff;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 10pt;
+    -fx-text-fill: #808080;
+}
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+.button:focused {
+    -fx-border-radius: 20px;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}

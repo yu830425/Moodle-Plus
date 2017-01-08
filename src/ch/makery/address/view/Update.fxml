@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Pane layoutX="565.0" layoutY="250.0" prefHeight="42.0" prefWidth="197.0" style="" styleClass="Pane">
+      <children>
+        <Label layoutX="14.0" layoutY="0.0" style="-fx-text-fill: #808080;" text="程式語言" />
+        <Label layoutX="66.0" layoutY="18.0" style="-fx-text-fill: #808080;" text="一天後" />
+        <Label layoutX="150.0" layoutY="21.0" style="-fx-text-fill: #808080;" text="交作業" />
+      </children>
+    </Pane>
+    <Pane layoutX="565.0" layoutY="295.0" prefHeight="42.0" prefWidth="197.0" style="" styleClass="Pane">
+      <children>
+        <Label layoutX="14.0" layoutY="0.0" style="-fx-text-fill: #808080;" text="作業系統" />
+        <Label layoutX="66.0" layoutY="20.0" style="-fx-text-fill: #808080;" text="一天後" />
+        <Label layoutX="150.0" layoutY="20.0" style="-fx-text-fill: #808080;" text="交作業" />
+      </children>
+    </Pane>
+    <Pane layoutX="565.0" layoutY="340.0" prefHeight="42.0" prefWidth="197.0" style="" styleClass="Pane">
+      <children>
+        <Label layoutX="14.0" layoutY="0.0" style="-fx-text-fill: #808080;" text="軟體工程" />
+        <Label layoutX="66.0" layoutY="19.0" style="-fx-text-fill: #808080;" text="一天後" />
+        <Label layoutX="150.0" layoutY="19.0" style="-fx-text-fill: #808080;" text="交作業" />
+      </children>
+    </Pane>
+    <Pane layoutX="251.0" layoutY="271.0" prefHeight="40.0" prefWidth="298.0" styleClass="Pane">
+      <children>
+        <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="" />
+        <Label layoutX="43.0" layoutY="11.0" style="-fx-text-fill: #808080;" text="資料庫" />
+        <Pane layoutX="233.0" layoutY="10.0" prefHeight="22.630859375" prefWidth="41.0" style="-fx-background-color: green;&#10;-fx-background-radius: 20px;">
+          <children>
+            <Label layoutX="7.0" layoutY="4.0" prefWidth="19.0" style="" text="0" textFill="WHITE">
+              <font>
+                <Font name="System Bold" size="12.0" fx:id="x1" />
+              </font>
+            </Label>
+          </children>
+        </Pane>
+      </children>
+    </Pane>
+    <Pane layoutX="251.0" layoutY="187.0" prefHeight="40.0" prefWidth="298.0" style="-fx-text-fill: #808080;" styleClass="Pane">
+      <children>
+        <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="" />
+        <Label layoutX="43.0" layoutY="11.0" style="-fx-text-fill: #808080;" text="作業系統" />
+        <Pane layoutX="233.0" layoutY="10.0" prefHeight="22.630859375" prefWidth="41.0" style="-fx-background-color: red;&#10;-fx-background-radius: 20px;">
+          <children>
+            <Label font="$x1" layoutX="7.0" layoutY="4.0" prefWidth="19.0" style="" text="3" textFill="WHITE" />
+          </children>
+        </Pane>
+      </children>
+    </Pane>
+    <Pane layoutX="251.0" layoutY="229.0" prefHeight="40.0" prefWidth="298.0" styleClass="Pane">
+      <children>
+        <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="" />
+        <Label layoutX="43.0" layoutY="11.0" style="-fx-text-fill: #808080;" text="程式語言" />
+        <Pane layoutX="233.0" layoutY="10.0" prefHeight="22.630859375" prefWidth="41.0" style="-fx-background-color: green;&#10;-fx-background-radius: 20px;">
+          <children>
+            <Label font="$x1" layoutX="7.0" layoutY="4.0" prefWidth="19.0" style="" text="0" textFill="WHITE" />
+          </children>
+        </Pane>
+      </children>
+    </Pane>
+    <Pane layoutX="251.0" layoutY="145.0" prefHeight="40.0" prefWidth="298.0" styleClass="Pane">
+      <children>
+        <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="" />
+        <Label layoutX="43.0" layoutY="11.0" style="-fx-text-fill: #808080;" text="軟體工程" />
+        <Pane layoutX="233.0" layoutY="10.0" prefHeight="22.630859375" prefWidth="41.0" style="-fx-background-color: red;&#10;-fx-background-radius: 20px;">
+          <children>
+            <Label font="$x1" layoutX="7.0" layoutY="4.0" prefWidth="19.0" style="" text="1" textFill="WHITE" />
+          </children>
+        </Pane>
+      </children>
+    </Pane>
+    <Label layoutX="334.0" layoutY="33.0" prefHeight="102.0" prefWidth="145.0" style="" text="講義更新" textFill="WHITE">
+      <font>
+        <Font size="36.0" />
+      </font>
+    </Label>
+    <Button layoutX="371.0" layoutY="328.0" mnemonicParsing="false" text="Update" />
+  </children>
+  <stylesheets>
+    <URL value="@UpdateTheme.css" />
+  </stylesheets>
+</AnchorPane>
