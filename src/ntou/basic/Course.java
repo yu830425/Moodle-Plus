@@ -8,11 +8,14 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlListItem;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlTableDataCell;
 import com.gargoylesoftware.htmlunit.html.HtmlTableRow;
+
+import ch.makery.address.*;
 
 import ntou.chupei.Console;
 
@@ -107,31 +110,35 @@ public class Course
 			}
 		}
 		
-		updateHandout(rootResource);
-		
-		actionList = (ArrayList) rootResource.getByXPath("//*[@id=\"content\"]/div/table/tbody/tr/td/a");
-		it = actionList.iterator();
-		
-		while(it.hasNext())
+		if(rootResource != null)
 		{
-			HtmlAnchor link = (HtmlAnchor) it.next();
-			String linkName = link.asText();
+			updateHandout(rootResource);
 			
-			if(linkName.compareTo(" 課程講義") == 0)
+			actionList = (ArrayList) rootResource.getByXPath("//*[@id=\"content\"]/div/table/tbody/tr/td/a");
+			it = actionList.iterator();
+			
+			while(it.hasNext())
 			{
-				try 
+				HtmlAnchor link = (HtmlAnchor) it.next();
+				String linkName = link.asText();
+				
+				if(linkName.compareTo(" 課程講義") == 0)
 				{
-					resource = link.click();
-				} 
-				catch (IOException e) 
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					try 
+					{
+						resource = link.click();
+					} 
+					catch (IOException e) 
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
+			
+			if(resource != null)
+				updateHandout(resource);
 		}
-		
-		updateHandout(resource);		
 	}
 	               
 	public void updateHomeworkList()
@@ -156,7 +163,7 @@ public class Course
 	}
 	
 	public void updateHandout(HtmlPage page)
-	{
+	{		
 		ArrayList fileList = (ArrayList) page.getByXPath("//*[@id=\"content\"]/div/table/tbody/tr[@class=\"file\"]");
 		
 		Iterator it = fileList.iterator();
@@ -171,9 +178,10 @@ public class Course
 			
 			try 
 			{
+				/*
 				InputStream fileStream = link.click().getWebResponse().getContentAsStream();
 				
-				String path = "C:/Users/Chupei/Desktop/OutputFile/"+courseName;
+				String path = "C:/Users/Chupei/Desktop/OutputFile/"+Services.crawler.userID+"/"+courseName;
 				
 				File filePath = new File(path);
 				filePath.mkdirs();
@@ -190,12 +198,51 @@ public class Course
 				
 				outputStream.flush();
 				outputStream.close();
+				*/
+				InputStream fileStream = link.click().getWebResponse().getContentAsStream();
+				
+				String path = "C:/Users/Chupei/Desktop/OutputFile/"+Services.crawler.userID+"/"+year+"/"+courseName;
+				
+				File filePath = new File(path);
+				filePath.mkdirs();
+				
+				Handout temp = new Handout(path+"/"+fileName);
+				
+				OutputStream outputStream = new FileOutputStream((File)temp);
+				
+				//125MB
+				byte[] bytes = new byte[131072000];
+				
+				int size = fileStream.read(bytes);
+				int totalSize = 0;
+				
+				while(size != -1)
+				{
+					outputStream.write(bytes,0,size);
+					totalSize += size;
+					
+					size = fileStream.read(bytes);
+				}
+				
+				outputStream.flush();
+				outputStream.close();
+				
+				temp.fileName = fileName;
+				temp.link = link;
+				temp.fileSize = totalSize;
+				
+				handoutList.add(temp);
 			} 
 			catch (IOException e) 
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+			catch (FailingHttpStatusCodeException code)
+			{
+				Console.warn("File Not Found!!");
+				Console.warn(code.getMessage());
+			}
+		}		
 	}
 }

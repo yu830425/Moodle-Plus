@@ -16,9 +16,13 @@ import javafx.stage.Stage;
 
 public class IndexController  implements Initializable 
 {		
+	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		
+	
 	}
 	
 	public void login(ActionEvent event) throws IOException 

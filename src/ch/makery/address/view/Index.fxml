@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.IndexController">
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.IndexController">
   <!-- TODO Add Nodes -->
   <children>
-    <TextField layoutX="298.0" layoutY="208.0" prefWidth="200.0" />
+    <TextField fx:id="acc" layoutX="298.0" layoutY="208.0" prefWidth="200.0" promptText="請輸入帳號" />
     <Button layoutX="360.0" layoutY="334.0" mnemonicParsing="false" onAction="#login" onMouseClicked="#login" text="Login" wrapText="false" />
-    <PasswordField layoutX="298.0" layoutY="260.0" prefWidth="200.0" />
+    <PasswordField fx:id="password" layoutX="298.0" layoutY="260.0" prefWidth="200.0" promptText="請輸入密碼" />
     <Pane layoutX="344.0" layoutY="55.0" prefHeight="100.0" prefWidth="107.0" styleClass="profile">
       <children>
         <Line endX="106.0" endY="0.0" startX="1.0" startY="99.0" />

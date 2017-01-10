@@ -2,16 +2,28 @@ package ntou.chupei;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+
+import org.apache.commons.logging.LogFactory;
+import org.w3c.css.sac.CSSException;
+import org.w3c.css.sac.CSSParseException;
+import org.w3c.css.sac.ErrorHandler;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
+import com.gargoylesoftware.htmlunit.IncorrectnessListener;
+import com.gargoylesoftware.htmlunit.InteractivePage;
+import com.gargoylesoftware.htmlunit.ScriptException;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HTMLParserListener;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.javascript.JavaScriptErrorListener;
 
 import ntou.basic.Course;
 
@@ -33,30 +45,105 @@ public class Crawler
 	/**
 	 * Private Method
 	 */
-	ArrayList<Course> courseList;
+	public ArrayList<Course> courseList;
+	
+	private void setCrawlerNoWarning()
+	{
+		LogFactory.getFactory().setAttribute("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
 
+	    java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF); 
+	    java.util.logging.Logger.getLogger("org.apache.commons.httpclient").setLevel(Level.OFF);
+		
+		client.getOptions().setCssEnabled(false);
+
+		client.setIncorrectnessListener(new IncorrectnessListener() {
+
+	        @Override
+	        public void notify(String arg0, Object arg1) {
+	            // TODO Auto-generated method stub
+
+	        }
+	    });
+		
+	    client.setCssErrorHandler(new ErrorHandler() {
+
+	        @Override
+	        public void warning(CSSParseException exception) throws CSSException {
+	            // TODO Auto-generated method stub
+
+	        }
+
+	        @Override
+	        public void fatalError(CSSParseException exception) throws CSSException {
+	            // TODO Auto-generated method stub
+
+	        }
+
+	        @Override
+	        public void error(CSSParseException exception) throws CSSException {
+	            // TODO Auto-generated method stub
+
+	        }
+	    });
+	    client.setJavaScriptErrorListener(new JavaScriptErrorListener() {
+
+			@Override
+			public void loadScriptError(InteractivePage arg0, URL arg1, Exception arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void malformedScriptURL(InteractivePage arg0, String arg1, MalformedURLException arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void scriptException(InteractivePage arg0, ScriptException arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void timeoutError(InteractivePage arg0, long arg1, long arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+	    });
+	    client.setHTMLParserListener(new HTMLParserListener() {
+			@Override
+			public void error(String arg0, URL arg1, String arg2, int arg3, int arg4, String arg5) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void warning(String arg0, URL arg1, String arg2, int arg3, int arg4, String arg5) {
+				// TODO Auto-generated method stub
+				
+			}
+	    });
+
+	    client.getOptions().setThrowExceptionOnFailingStatusCode(false);
+	    client.getOptions().setThrowExceptionOnScriptError(false);
+	}
+	
 	/**
 	 * Constructor
 	 */
-	public Crawler(String account,String passwd)
-	{
-		client = new WebClient(BrowserVersion.FIREFOX_45);
+	public Crawler()
+	{		
+		client = new WebClient(BrowserVersion.FIREFOX_45);		
 		client.getOptions().setThrowExceptionOnScriptError(false);
+		
+		setCrawlerNoWarning();
+		
 		courseList = new ArrayList<Course>();
 		
 		try 
 		{
 			homePage = client.getPage(rootURL);
-			
-			if(login(account,passwd))
-			{
-				Console.log("Login Success!!");
-				updateCourse();
-			}
-			else
-			{
-				Console.err("Login Fail!!");
-			}
 		} 
 		catch (FailingHttpStatusCodeException e) 
 		{

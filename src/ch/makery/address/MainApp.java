@@ -22,9 +22,7 @@ public class MainApp extends Application {
 
         initRootLayout();
 
-        showPersonOverview();
-        
-        
+        showPersonOverview();        
     }
 
     /**
@@ -81,7 +79,9 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) 
-    {    	
+    {    
+    	Services.initCrawler("10557029", "A126616287");
+    	
         launch(args);
     }
 }

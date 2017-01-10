@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class HomeController implements Initializable
@@ -68,6 +69,22 @@ public class HomeController implements Initializable
 	    sceneLayout.setCenter(myLayout);
 	}
 	
+	public void gotoCalendar(ActionEvent event) throws IOException
+	{
+		Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+	    BorderPane sceneLayout = new BorderPane();
+	    stage.setTitle("Index");
+	    sceneLayout = FXMLLoader.load(getClass().getResource("view/RootLayout.fxml"));
+	    
+	    Scene scene = new Scene(sceneLayout, 800, 500);
+	    stage.setScene(scene);
+	    Pane myLayout = FXMLLoader.load(getClass().getResource("view/Calendar.fxml")); 
+	    System.out.println("This is Calendar,but it is not a AnchorPane class.");
+	    
+	    stage.show();
+	    sceneLayout.setCenter(myLayout);
+	}
+	
 	public void gotoIndex(ActionEvent event) throws IOException
 	{
 		Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -83,4 +100,26 @@ public class HomeController implements Initializable
 	    stage.show();
 	    sceneLayout.setCenter(myLayout);
 	}
+	
+	
+	
+	
+	public void logout(ActionEvent event) throws IOException
+	{
+		Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+	    BorderPane sceneLayout = new BorderPane();
+	    stage.setTitle("Index");
+	    sceneLayout = FXMLLoader.load(getClass().getResource("view/IndexLayout.fxml"));
+	    
+	    Scene scene = new Scene(sceneLayout, 800, 500);
+	    stage.setScene(scene);
+	    AnchorPane myLayout = FXMLLoader.load(getClass().getResource("view/index.fxml")); 
+	    
+	    
+	    stage.show();
+	    sceneLayout.setCenter(myLayout); 
+	    System.out.println("logout success!");
+	}
+	
+	
 }

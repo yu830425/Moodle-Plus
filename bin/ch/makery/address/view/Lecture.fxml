@@ -7,38 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.HandoutController">
   <!-- TODO Add Nodes -->
   <children>
-    <Label layoutX="328.0" layoutY="23.0" prefHeight="102.0" prefWidth="145.0" text="講義管理" textFill="WHITE">
+    <Label fx:id="title" layoutX="101.0" layoutY="22.0" prefHeight="102.0" prefWidth="611.0" text="講義管理" textAlignment="CENTER" textFill="WHITE">
       <font>
         <Font size="36.0" />
       </font>
     </Label>
-    <Label layoutX="137.0" layoutY="91.0" prefHeight="27.0" prefWidth="67.0" text="軟體工程 /" textFill="WHITE" />
-    <Label layoutX="204.0" layoutY="91.0" prefHeight="27.0" prefWidth="67.0" text="講義 /" textFill="WHITE" />
-    <Pane layoutX="169.0" layoutY="125.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label layoutX="33.0" layoutY="17.0" text="SRS-軟體開發文件規範與範例" textFill="GREY">
-          <font>
-            <Font size="18.0" fx:id="x1" />
-          </font>
-        </Label>
-        <Button alignment="CENTER_LEFT" layoutX="378.0" layoutY="32.0" mnemonicParsing="false" prefWidth="70.0" text="內容" textAlignment="LEFT" />
-      </children>
-      <stylesheets>
-        <URL value="@LectureTheme.css" />
-      </stylesheets>
-    </Pane>
-    <Pane layoutX="169.0" layoutY="185.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label font="$x1" layoutX="33.0" layoutY="17.0" text="SRS-軟體開發文件規範與範例" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="299.0" layoutY="38.0" mnemonicParsing="false" prefWidth="70.0" text="內容" textAlignment="LEFT" />
-        <Button alignment="CENTER_LEFT" layoutX="378.0" layoutY="37.0" mnemonicParsing="false" prefWidth="70.0" style="-fx-background-color: red;" text="下載" textAlignment="LEFT" />
-      </children>
-      <stylesheets>
-        <URL value="@LectureTheme.css" />
-      </stylesheets>
-    </Pane>
+      <ScrollPane layoutX="161.0" layoutY="101.0" prefHeight="282.0" prefWidth="499.0">
+        <content>
+          <AnchorPane fx:id="handouts" minHeight="0.0" minWidth="0.0" prefHeight="530.0" prefWidth="481.0" />
+        </content>
+      </ScrollPane>
   </children>
 </AnchorPane>

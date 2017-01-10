@@ -21,6 +21,25 @@ public class UploadController implements Initializable
 		
 	}
 	
+	public void download(ActionEvent event)
+	{
+		
+	
+	}
+	
+	
+	public void readRecord(ActionEvent event) 
+	{
+		
+		
+	}
+
+	
+	public void readContent(ActionEvent event) 
+	{
+		
+	}
+	
 	public void gotoUpload(ActionEvent event) throws IOException 
 	{
 		Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -36,4 +55,22 @@ public class UploadController implements Initializable
 	    stage.show();
 	    sceneLayout.setCenter(myLayout);
 	}
+	
+	public void gotoHistoryHomework(ActionEvent event) throws IOException 
+	{
+		
+		Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+	    BorderPane sceneLayout = new BorderPane();
+	    stage.setTitle("CurrentHomwork");
+	    sceneLayout = FXMLLoader.load(getClass().getResource("view/RootLayout.fxml"));
+	    
+	    Scene scene = new Scene(sceneLayout, 800, 500);
+	    stage.setScene(scene);
+	    AnchorPane myLayout = FXMLLoader.load(getClass().getResource("view/HomeworkMan.fxml")); 
+	    
+	    stage.show();
+	    sceneLayout.setCenter(myLayout);
+	}
+	
+	
 }

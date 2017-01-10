@@ -25,7 +25,7 @@ public class HomeworkController implements Initializable
 	{
 		Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
 	    BorderPane sceneLayout = new BorderPane();
-	    stage.setTitle("CurrentHomwork");
+	    stage.setTitle("HistoryHomework");
 	    sceneLayout = FXMLLoader.load(getClass().getResource("view/RootLayout.fxml"));
 	    
 	    Scene scene = new Scene(sceneLayout, 800, 500);
@@ -36,4 +36,14 @@ public class HomeworkController implements Initializable
 	    stage.show();
 	    sceneLayout.setCenter(myLayout);
 	}
+	
+	public void readContent(ActionEvent event)
+	{
+		System.out.println("open file and read");
+	}
+	
+	public void readRecord(ActionEvent event)
+	{
+		System.out.println("read record");
+	}	
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.LectureController">
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.LectureController">
   <!-- TODO Add Nodes -->
   <children>
     <Label layoutX="328.0" layoutY="23.0" prefHeight="102.0" prefWidth="145.0" text="講義管理" textFill="WHITE">
@@ -15,47 +15,11 @@
         <Font size="36.0" />
       </font>
     </Label>
-    <Label layoutX="137.0" layoutY="91.0" prefHeight="27.0" prefWidth="67.0" text="軟體工程 /" textFill="WHITE" />
-    <Pane layoutX="169.0" layoutY="125.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label layoutX="33.0" layoutY="17.0" text="軟體工程" textFill="GREY">
-          <font>
-            <Font size="18.0" fx:id="x1" />
-          </font>
-        </Label>
-        <Button alignment="CENTER_LEFT" layoutX="378.0" layoutY="32.0" mnemonicParsing="false" onAction="#gotoLecture" onMouseClicked="#gotoLecture" prefWidth="70.0" text="more...." textAlignment="LEFT" />
-      </children>
-      <stylesheets>
-        <URL value="@LectureManTheme.css" />
-      </stylesheets>
-    </Pane>
-    <Pane layoutX="169.0" layoutY="185.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label font="$x1" layoutX="33.0" layoutY="17.0" text="作業系統" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="378.0" layoutY="32.0" mnemonicParsing="false" prefWidth="70.0" text="more..." textAlignment="LEFT" />
-      </children>
-      <stylesheets>
-        <URL value="@LectureManTheme.css" />
-      </stylesheets>
-    </Pane>
-    <Pane layoutX="169.0" layoutY="245.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label font="$x1" layoutX="33.0" layoutY="17.0" text="程式語言" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="378.0" layoutY="32.0" mnemonicParsing="false" prefWidth="70.0" text="more..." textAlignment="LEFT" />
-      </children>
-      <stylesheets>
-        <URL value="@LectureManTheme.css" />
-      </stylesheets>
-    </Pane>
-    <Pane layoutX="169.0" layoutY="305.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label font="$x1" layoutX="33.0" layoutY="17.0" text="資料庫" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="378.0" layoutY="32.0" mnemonicParsing="false" prefWidth="70.0" text="more..." textAlignment="LEFT" />
-      </children>
-      <stylesheets>
-        <URL value="@LectureManTheme.css" />
-      </stylesheets>
-    </Pane>
+      <ScrollPane layoutX="137.0" layoutY="106.0" prefHeight="278.0" prefWidth="510.0">
+        <content>
+          <AnchorPane fx:id="courses" minHeight="0.0" minWidth="0.0" prefHeight="1396.0" prefWidth="491.0" />
+        </content>
+      </ScrollPane>
   </children>
   <stylesheets>
     <URL value="@LectureManTheme.css" />
