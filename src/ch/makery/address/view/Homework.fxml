@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.UploadController">
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.RecentHomeworkController">
   <!-- TODO Add Nodes -->
   <children>
     <Label layoutX="328.0" layoutY="23.0" prefHeight="102.0" prefWidth="145.0" text="作業管理" textFill="WHITE">
@@ -19,7 +19,7 @@
     <Button layoutX="668.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoHistoryHomework" onMouseClicked="#gotoHistoryHomework" prefHeight="42.0" prefWidth="90.0" style="-fx-background-radius: 8px;&#10;-fx-font-size: 10pt;&#10;-fx-background-color: white;&#10;-fx-text-fill: #808080;&#10;" text="歷史作業" />
       <ScrollPane layoutX="158.0" layoutY="113.0" prefHeight="276.0" prefWidth="509.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+          <AnchorPane fx:id="homeworks" minHeight="0.0" minWidth="0.0" prefHeight="276.0" prefWidth="507.0" />
         </content>
       </ScrollPane>
   </children>

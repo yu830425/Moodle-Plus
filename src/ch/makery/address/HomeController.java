@@ -73,7 +73,7 @@ public class HomeController implements Initializable
 	{
 		Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
 	    BorderPane sceneLayout = new BorderPane();
-	    stage.setTitle("Index");
+	    stage.setTitle("Calendar");
 	    sceneLayout = FXMLLoader.load(getClass().getResource("view/RootLayout.fxml"));
 	    
 	    Scene scene = new Scene(sceneLayout, 800, 500);

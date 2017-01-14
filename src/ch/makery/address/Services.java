@@ -7,7 +7,7 @@ public class Services
 {
 	public static Crawler crawler;
 	
-	public static void initCrawler(String acc,String passwd)
+	public static boolean initCrawler(String acc,String passwd)
 	{
 		crawler = new Crawler();
 		
@@ -15,11 +15,16 @@ public class Services
 		{
 			Console.log("[Crawler] - Login Success.");
 			
+
 			crawler.updateCourse();
+			
+			//crawler.updateCourse();
+			return true;
 		}
 		else
 		{
 			Console.log("[Crawler] - Login Failed!");
+			return false;
 		}
 	}
 }

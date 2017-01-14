@@ -1,6 +1,10 @@
 package ntou.chupei;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -25,6 +29,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.javascript.JavaScriptErrorListener;
 
+import ch.makery.address.MyList;
 import ntou.basic.Course;
 
 public class Crawler 
@@ -234,6 +239,63 @@ public class Crawler
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		
+		//saveResult();
+	}
+	
+	public boolean loadResult()
+	{
+		MyList list;
+		
+		try 
+		{
+			ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("javaObjects.txt"));
+			
+			try 
+			{
+				list = (MyList) objectInputStream.readObject();
+			} 
+			catch (ClassNotFoundException e) 
+			{
+				e.printStackTrace();
+				return false;
+			}
+			
+			objectInputStream.close();
+		} 
+		catch (IOException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		catch (Exception e)
+		{
+			return false;
+		}
+		
+		courseList = new ArrayList<Course> (list.courseList);
+		
+		return true;
+	}
+	
+	public void saveResult()
+	{
+		MyList mylist = new MyList(courseList);
+		
+		try 
+		{
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("javaObjects.txt"));
+			
+			objectOutputStream.writeObject(mylist);
+			objectOutputStream.flush();
+			objectOutputStream.close();
+		} 
+		catch (IOException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

@@ -12,6 +12,7 @@ import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlListItem;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.HtmlTableCell;
 import com.gargoylesoftware.htmlunit.html.HtmlTableDataCell;
 import com.gargoylesoftware.htmlunit.html.HtmlTableRow;
 
@@ -40,6 +41,7 @@ public class Course
 		 */
 		courseName = name;
 		year = time;
+		
 		
 		/**
 		 * Pages Initial
@@ -151,9 +153,11 @@ public class Course
 		{
 			HtmlAnchor anchor = (HtmlAnchor) it.next();
 			
+			HtmlTableCell tableRow = anchor.getParentNode().getParentNode().getFirstByXPath(".//td[contains(@class,\"c3\")]");
+			
 			try 
 			{
-				assignmentList.add(new Assignment(anchor.asText(),anchor.click()));
+				assignmentList.add(new Assignment(anchor.asText(),anchor.click(),tableRow.asText()));
 			} 
 			catch (IOException e) 
 			{

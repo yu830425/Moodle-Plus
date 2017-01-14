@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.UploadController">
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.RecentHomeworkController">
   <!-- TODO Add Nodes -->
   <children>
     <Label layoutX="328.0" layoutY="23.0" prefHeight="102.0" prefWidth="145.0" text="作業管理" textFill="WHITE">
@@ -15,48 +15,13 @@
         <Font size="36.0" />
       </font>
     </Label>
-    <Pane layoutX="169.0" layoutY="125.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label layoutX="43.0" layoutY="24.0" text="訊號與系統" textFill="GREY">
-          <font>
-            <Font size="18.0" fx:id="x1" />
-          </font>
-        </Label>
-        <Button alignment="CENTER_LEFT" layoutX="296.0" layoutY="32.0" mnemonicParsing="false" onAction="#readRecord" onMouseClicked="#readRecord" prefWidth="70.0" text="紀錄" textAlignment="LEFT" />
-        <Label layoutX="13.0" layoutY="4.0" text="第一次作業" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="218.0" layoutY="32.0" mnemonicParsing="false" onAction="#readContent" onMouseClicked="#readContent" prefWidth="70.0" text="內容" textAlignment="LEFT" />
-        <Button alignment="CENTER_LEFT" layoutX="374.0" layoutY="32.0" mnemonicParsing="false" onAction="#gotoUpload" onMouseClicked="#gotoUpload" prefWidth="70.0" style="-fx-background-color: red;" text="上傳" textAlignment="LEFT" />
-      </children>
-    </Pane>
-    <Pane layoutX="169.0" layoutY="185.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label font="$x1" layoutX="43.0" layoutY="24.0" text="作業系統" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="296.0" layoutY="32.0" mnemonicParsing="false" onAction="#readRecord" onMouseClicked="#readRecord" prefWidth="70.0" text="紀錄" textAlignment="LEFT" />
-        <Label layoutX="13.0" layoutY="4.0" text="第一次作業" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="218.0" layoutY="32.0" mnemonicParsing="false" onAction="#readContent" onMouseClicked="#readContent" prefWidth="70.0" text="內容" textAlignment="LEFT" />
-        <Button alignment="CENTER_LEFT" layoutX="374.0" layoutY="32.0" mnemonicParsing="false" onAction="#gotoUpload" onMouseClicked="#gotoUpload" prefWidth="70.0" style="-fx-background-color: red;" text="上傳" textAlignment="LEFT" />
-      </children>
-    </Pane>
-    <Pane layoutX="169.0" layoutY="305.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label font="$x1" layoutX="43.0" layoutY="24.0" text="軟體工程" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="296.0" layoutY="32.0" mnemonicParsing="false" onAction="#readRecord" onMouseClicked="#readRecord" prefWidth="70.0" text="紀錄" textAlignment="LEFT" />
-        <Label layoutX="13.0" layoutY="4.0" text="第一次作業" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="218.0" layoutY="32.0" mnemonicParsing="false" onAction="#readContent" onMouseClicked="#readContent" prefWidth="70.0" text="內容" textAlignment="LEFT" />
-        <Button alignment="CENTER_LEFT" layoutX="374.0" layoutY="32.0" mnemonicParsing="false" onAction="#gotoUpload" onMouseClicked="#gotoUpload" prefWidth="70.0" style="-fx-background-color: red;" text="上傳" textAlignment="LEFT" />
-      </children>
-    </Pane>
-    <Pane layoutX="169.0" layoutY="245.0" prefHeight="55.0" prefWidth="462.0" styleClass="Pane">
-      <children>
-        <Label font="$x1" layoutX="43.0" layoutY="24.0" text="電腦圖學" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="296.0" layoutY="32.0" mnemonicParsing="false" onAction="#readRecord" onMouseClicked="#readRecord" prefWidth="70.0" text="紀錄" textAlignment="LEFT" />
-        <Label layoutX="13.0" layoutY="4.0" text="第一次作業" textFill="GREY" />
-        <Button alignment="CENTER_LEFT" layoutX="218.0" layoutY="32.0" mnemonicParsing="false" onAction="#readContent" onMouseClicked="#readContent" prefWidth="70.0" text="內容" textAlignment="LEFT" />
-        <Button alignment="CENTER_LEFT" layoutX="374.0" layoutY="32.0" mnemonicParsing="false" onAction="#gotoUpload" onMouseClicked="#gotoUpload" prefWidth="70.0" style="-fx-background-color: red;" text="上傳" textAlignment="LEFT" />
-      </children>
-    </Pane>
     <Button layoutX="578.0" layoutY="14.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" style="-fx-background-radius: 8px;&#10;-fx-font-size: 10pt;" text="最近作業" />
     <Button layoutX="668.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoHistoryHomework" onMouseClicked="#gotoHistoryHomework" prefHeight="42.0" prefWidth="90.0" style="-fx-background-radius: 8px;&#10;-fx-font-size: 10pt;&#10;-fx-background-color: white;&#10;-fx-text-fill: #808080;&#10;" text="歷史作業" />
+      <ScrollPane layoutX="158.0" layoutY="113.0" prefHeight="276.0" prefWidth="509.0">
+        <content>
+          <AnchorPane fx:id="homeworks" minHeight="0.0" minWidth="0.0" prefHeight="276.0" prefWidth="507.0" />
+        </content>
+      </ScrollPane>
   </children>
   <stylesheets>
     <URL value="@HomeworkTheme.css" />

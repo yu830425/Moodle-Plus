@@ -2,10 +2,9 @@ package ch.makery.address;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.ResourceBundle;
-
-import javax.swing.GroupLayout.Alignment;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,17 +21,18 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import net.sourceforge.htmlunit.corejs.javascript.ast.Assignment;
 import ntou.basic.Course;
+import ntou.basic.SceneStatus;
 
-public class HomeworkController implements Initializable
+public class RecentHomeworkController implements Initializable 
 {
 	@FXML
-	private AnchorPane assignments;
+	private AnchorPane homeworks;
 	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) 
+	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		Date now = new Date();
+		
 		Iterator courseIt = Services.crawler.courseList.iterator();
 		
 		int offset = 0;
@@ -43,8 +43,11 @@ public class HomeworkController implements Initializable
 			Iterator it = tempCourse.assignmentList.iterator();
 			
 			while(it.hasNext())
-			{
+			{								
 				ntou.basic.Assignment assignment = (ntou.basic.Assignment) it.next();
+				
+				if(assignment.hasDeadLine == true && now.after(assignment.deadLine))
+					continue;
 				
 				Pane assignmentPane = new Pane();
 				assignmentPane.setLayoutX(30.0);
@@ -82,30 +85,62 @@ public class HomeworkController implements Initializable
 					}					
 				});
 				
-				assignmentPane.getChildren().addAll(courseName,assignmentName,content);
-				assignments.getChildren().add(assignmentPane);
+				Button upload = new Button();
+				upload.setText("¤W¶Ç");
+				upload.setLayoutX(374.0);
+				upload.setLayoutY(32.0);
+				upload.setMnemonicParsing(false);
+				//upload.setPrefHeight(70.0);
+				upload.setStyle("-fx-background-color: red;");
+				upload.setOnAction(new EventHandler<ActionEvent>()
+				{
+					@Override
+					public void handle(ActionEvent arg0) 
+					{
+						SceneStatus.bufferAssignment = assignment;
+						SceneStatus.bufferCourse = tempCourse;
+						
+						try 
+						{
+							gotoUpload(arg0);
+						} 
+						catch (IOException e) 
+						{
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				});
+				
+				assignmentPane.getChildren().addAll(courseName,assignmentName,content,upload);
+				homeworks.getChildren().add(assignmentPane);
 				
 				offset++;
 			}
-		}
+		}		
 	}
 	
-	public void gotoCurrentHomework(ActionEvent event) throws IOException 
+	public void gotoUpload(ActionEvent event) throws IOException
 	{
-		/*
-		Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-	    BorderPane sceneLayout = new BorderPane();
-	    stage.setTitle("HistoryHomework");
+		BorderPane sceneLayout = new BorderPane();
 	    sceneLayout = FXMLLoader.load(getClass().getResource("view/RootLayout.fxml"));
+	    
+	    //Stage stage = new Stage();
+	    Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+	    
+	    stage.setTitle("Upload");
 	    
 	    Scene scene = new Scene(sceneLayout, 800, 500);
 	    stage.setScene(scene);
-	    AnchorPane myLayout = FXMLLoader.load(getClass().getResource("view/Homework.fxml")); 	    
+	    AnchorPane myLayout = FXMLLoader.load(getClass().getResource("view/Upload.fxml")); 
+	    
 	    
 	    stage.show();
 	    sceneLayout.setCenter(myLayout);
-	    */
-		
+	}
+	
+	public void gotoHistoryHomework(ActionEvent event) throws IOException
+	{
 		BorderPane sceneLayout = new BorderPane();
 	    sceneLayout = FXMLLoader.load(getClass().getResource("view/RootLayout.fxml"));
 	    
@@ -116,19 +151,10 @@ public class HomeworkController implements Initializable
 	    
 	    Scene scene = new Scene(sceneLayout, 800, 500);
 	    stage.setScene(scene);
-	    AnchorPane myLayout = FXMLLoader.load(getClass().getResource("view/Homework.fxml")); 
+	    AnchorPane myLayout = FXMLLoader.load(getClass().getResource("view/HomeworkMan.fxml")); 
+	    
 	    
 	    stage.show();
 	    sceneLayout.setCenter(myLayout);
 	}
-	
-	public void readContent(ActionEvent event)
-	{
-		System.out.println("open file and read");
-	}
-	
-	public void readRecord(ActionEvent event)
-	{
-		System.out.println("read record");
-	}	
 }

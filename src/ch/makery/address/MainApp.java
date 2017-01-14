@@ -1,5 +1,6 @@
 package ch.makery.address;
 
+import java.awt.EventQueue;
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -8,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import ntou.chupei.Test;
+import ntou.chupei.ToastMessage;
 
 public class MainApp extends Application {
 
@@ -80,8 +83,8 @@ public class MainApp extends Application {
 
     public static void main(String[] args) 
     {    
-    	Services.initCrawler("10557029", "A126616287");
-    	
+    	//Services.initCrawler("10557029", "A126616287");
         launch(args);
+    	
     }
 }

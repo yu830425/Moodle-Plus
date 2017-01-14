@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.HandoutController">
+<AnchorPane prefHeight="400.0" prefWidth="800.0" stylesheets="@LectureTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.HandoutController">
   <!-- TODO Add Nodes -->
   <children>
     <Label fx:id="title" layoutX="101.0" layoutY="22.0" prefHeight="102.0" prefWidth="611.0" text="講義管理" textAlignment="CENTER" textFill="WHITE">
@@ -15,7 +15,7 @@
         <Font size="36.0" />
       </font>
     </Label>
-      <ScrollPane layoutX="161.0" layoutY="101.0" prefHeight="282.0" prefWidth="499.0">
+      <ScrollPane layoutX="156.0" layoutY="99.0" prefHeight="282.0" prefWidth="499.0">
         <content>
           <AnchorPane fx:id="handouts" minHeight="0.0" minWidth="0.0" prefHeight="530.0" prefWidth="481.0" />
         </content>
