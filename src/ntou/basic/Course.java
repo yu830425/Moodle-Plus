@@ -205,7 +205,7 @@ public class Course
 				*/
 				InputStream fileStream = link.click().getWebResponse().getContentAsStream();
 				
-				String path = "C:/Users/Chupei/Desktop/OutputFile/"+Services.crawler.userID+"/"+year+"/"+courseName;
+				String path = "./"+Services.crawler.userID+"/"+year+"/"+courseName;
 				
 				File filePath = new File(path);
 				filePath.mkdirs();

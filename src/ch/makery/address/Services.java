@@ -6,6 +6,8 @@ import ntou.chupei.Crawler;
 public class Services 
 {
 	public static Crawler crawler;
+	private static UploadTrigger thread = new UploadTrigger();
+	private static NetworkStatus thread2 = new NetworkStatus();
 	
 	public static boolean initCrawler(String acc,String passwd)
 	{
@@ -26,5 +28,11 @@ public class Services
 			Console.log("[Crawler] - Login Failed!");
 			return false;
 		}
+	}
+	
+	public static void initTrigger()
+	{
+		thread.start();
+		thread2.start();
 	}
 }

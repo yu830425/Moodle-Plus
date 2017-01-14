@@ -99,5 +99,7 @@ public class HandoutController implements Initializable
 			
 			offset++;
 		}
+		
+		handouts.setPrefHeight(60.0*offset+30.0);
 	}
 }

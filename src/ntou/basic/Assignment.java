@@ -9,6 +9,7 @@ import java.util.Date;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
+import ch.makery.address.UploadTrigger;
 import ntou.chupei.Console;
 
 public class Assignment 
@@ -66,6 +67,9 @@ public class Assignment
 		
 		HtmlInput submit = page.getElementByName("save");
 		
+		UploadEvent event = new UploadEvent(filePath, inputFile, submit);
+		UploadTrigger.uploadEvent(event);
+		/*
 		try 
 		{
 			submit.click();
@@ -74,6 +78,7 @@ public class Assignment
 		{
 			e.printStackTrace();
 		}
+		*/
 	}
 	
 	public void updateHomework()

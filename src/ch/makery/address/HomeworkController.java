@@ -88,6 +88,8 @@ public class HomeworkController implements Initializable
 				offset++;
 			}
 		}
+		
+		assignments.setPrefHeight(60.0*offset+30.0);
 	}
 	
 	public void gotoCurrentHomework(ActionEvent event) throws IOException 

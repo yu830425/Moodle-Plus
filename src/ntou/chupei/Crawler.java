@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
 
@@ -40,6 +41,7 @@ public class Crawler
 	private String rootURL = "http://moodle.ntou.edu.tw/";
 	private WebClient client;	
 	private HtmlPage homePage;
+	private HashMap<String, String> blackList;
 	
 	/**
 	 * Public Variable
@@ -142,7 +144,7 @@ public class Crawler
 		client = new WebClient(BrowserVersion.FIREFOX_45);		
 		client.getOptions().setThrowExceptionOnScriptError(false);
 		
-		setCrawlerNoWarning();
+		//setCrawlerNoWarning();
 		
 		courseList = new ArrayList<Course>();
 		
@@ -165,6 +167,21 @@ public class Crawler
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		initHashMap();
+	}
+	
+	private void initHashMap()
+	{
+		blackList = new HashMap<String,String>();
+		
+		blackList.put("JAVA程式設計A", "1");
+		blackList.put("作業系統A", "1");
+		blackList.put("電腦圖學(一)A", "1");
+		blackList.put("資料庫系統A", "1");
+		blackList.put("程式語言B", "1");
+		blackList.put("計算機概論實習B", "1");
+		blackList.put("軟體工程A", "1");
 	}
 	
 	/**
@@ -232,7 +249,12 @@ public class Crawler
 			try 
 			{
 				if(param.length == 2)
+				{
+					if(blackList.containsKey(param[1]))
+						continue;
+					
 					courseList.add(new Course(param[1],param[0],courseLink.click()));
+				}
 			} 
 			catch (IOException e) 
 			{

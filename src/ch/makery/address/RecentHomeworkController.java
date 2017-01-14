@@ -117,7 +117,9 @@ public class RecentHomeworkController implements Initializable
 				
 				offset++;
 			}
-		}		
+		}
+		
+		homeworks.setPrefHeight(60.0*offset+30.0);
 	}
 	
 	public void gotoUpload(ActionEvent event) throws IOException

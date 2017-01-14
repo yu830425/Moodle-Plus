@@ -22,6 +22,8 @@ public class MainApp extends Application {
     {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Home");
+        
+        Services.initTrigger();
 
         initRootLayout();
 
